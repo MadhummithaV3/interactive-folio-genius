@@ -22,24 +22,24 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-playfair font-normal text-primary hover:text-accent transition-colors duration-300">
+          <Link to="/" className="text-2xl font-playfair font-bold text-gradient">
             Portfolio
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-2">
+          <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium text-sm tracking-wide ${
+                className={`px-3 py-2 rounded-lg transition-all duration-300 font-medium ${
                   isActive(item.path)
                     ? 'text-accent bg-accent/10'
-                    : 'text-muted-foreground hover:text-primary hover:bg-muted/50'
+                    : 'text-muted-foreground hover:text-accent hover:bg-accent/5'
                 }`}
               >
                 {item.name}
@@ -53,9 +53,9 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 hover:bg-muted/50"
+              className="p-2"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -63,16 +63,16 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-4 space-y-1 border-t border-border bg-background/98 backdrop-blur-sm">
+            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-border bg-background/95 backdrop-blur-sm">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg transition-all duration-300 font-medium text-sm tracking-wide ${
+                  className={`block px-3 py-2 rounded-lg transition-all duration-300 font-medium ${
                     isActive(item.path)
                       ? 'text-accent bg-accent/10'
-                      : 'text-muted-foreground hover:text-primary hover:bg-muted/50'
+                      : 'text-muted-foreground hover:text-accent hover:bg-accent/5'
                   }`}
                 >
                   {item.name}
