@@ -41,17 +41,17 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left - Content */}
             <div className="space-y-8 animate-fade-in">
-              <div className="space-y-6">
-                <h1 className="text-5xl lg:text-6xl font-playfair font-bold text-primary">
+              <div className="space-y-8">
+                <h1 className="text-display text-primary">
                   Hello, I'm
                   <span className="text-gradient block">Alex Johnson</span>
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="body-large">
                   A passionate Full Stack Developer with over 3 years of experience in creating 
                   innovative web solutions. I specialize in modern JavaScript frameworks, 
                   particularly the MERN stack, and have a keen eye for design and user experience.
                 </p>
-                <p className="text-muted-foreground">
+                <p className="body-regular">
                   My journey began during my Computer Science studies, where I discovered my 
                   love for both the technical and creative aspects of web development. Today, 
                   I combine code craftsmanship with design thinking to build digital experiences 
@@ -97,10 +97,10 @@ const Home = () => {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-playfair font-bold text-primary mb-4">
+            <h2 className="heading-primary mb-6">
               Core Specializations
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="body-large max-w-2xl mx-auto">
               Expertise across the full spectrum of modern web development
             </p>
           </div>
