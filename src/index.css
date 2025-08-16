@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* Professional Portfolio Design System */
 @layer base {
   :root {
+    /* Core Colors - Professional Navy & Emerald Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 215 25% 15%;
+    
+    /* Primary - Deep Navy */
+    --primary: 215 45% 15%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 215 35% 25%;
+    --primary-glow: 215 55% 45%;
+    
+    /* Accent - Emerald */
+    --accent: 158 64% 52%;
+    --accent-foreground: 0 0% 98%;
+    --accent-light: 158 54% 62%;
+    --accent-glow: 158 74% 42%;
+    
+    /* Neutrals */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 215 25% 15%;
+    --muted: 215 10% 96%;
+    --muted-foreground: 215 15% 55%;
+    --border: 215 15% 92%;
+    --input: 215 15% 92%;
+    --ring: 158 64% 52%;
+    
+    /* Semantic Colors */
+    --secondary: 215 10% 96%;
+    --secondary-foreground: 215 25% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 215 25% 15%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent-glow)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 30px -4px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 20px 60px -12px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.3);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +76,19 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 215 45% 8%;
+    --foreground: 0 0% 95%;
+    --primary: 158 64% 52%;
+    --primary-foreground: 215 45% 8%;
+    --accent: 215 35% 25%;
+    --accent-foreground: 0 0% 95%;
+    --card: 215 40% 12%;
+    --card-foreground: 0 0% 95%;
+    --muted: 215 30% 15%;
+    --muted-foreground: 215 15% 70%;
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 158 64% 52%;
   }
 }
 
@@ -98,8 +96,96 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero-primary {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground 
+           hover:shadow-strong hover:scale-105 transition-all duration-300 
+           px-8 py-4 rounded-xl font-semibold text-lg;
+  }
+  
+  .btn-hero-secondary {
+    @apply border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground 
+           hover:shadow-glow transition-all duration-300 
+           px-8 py-4 rounded-xl font-semibold text-lg;
+  }
+  
+  /* Card Variants */
+  .card-elevated {
+    @apply bg-card border border-border rounded-2xl p-6 
+           shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-card to-muted border border-border 
+           rounded-2xl p-6 shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+  
+  /* Text Styles */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .text-hero {
+    @apply font-playfair text-5xl md:text-6xl lg:text-7xl font-bold leading-tight;
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply hover:-translate-y-2 hover:shadow-strong transition-all duration-300;
+  }
+  
+  .hover-glow {
+    @apply hover:shadow-glow transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
 }
